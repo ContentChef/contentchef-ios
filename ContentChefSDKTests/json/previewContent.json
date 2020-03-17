@@ -1,0 +1,104 @@
+{
+    "publicId": "BDmaab75YNc",
+    "definition": "default-header",
+    "repository": "defaultRepository",
+    "payload": {
+        "simple_text": "This is a simple text",
+        "simple_number": 1,
+        "number_values_list": 1,
+        "simple_plain_text": "This is a simple plain text",
+        "markdown_plain_text": "**This is a markdown plain text**",
+        "json_plain_text": "{\"json\":\"This is a JSON plain text\"}",
+        "html_plain_text": "<!DOCTYPE html>\n<html>\n<body>\n\n<p>HTML plain text</p>\n\n</body>\n</html>",
+        "date": "2020-03-09T10:56:00.000Z",
+        "boolean": true,
+        "legacy_content_reference": {
+            "leftSection": {
+                "name": "textSection",
+                "value": {
+                    "title": "Amazing left section title",
+                    "content": "Amazing left section content"
+                }
+            },
+            "rightSection": {
+                "name": "sectionWithLinkedContents",
+                "value": {
+                    "listSections": [{
+                        "header": "Amazing title",
+                        "content": "Amazing content",
+                        "@contentChef": {
+                            "authoringContentId": 29,
+                            "authoringContentVersion": 1,
+                            "publicId": "header-with-description",
+                            "tags": [],
+                            "definition": "default-header-with-content",
+                            "repository": "defaultRepository",
+                            "status": "resolved"
+                        }
+                    }]
+                }
+            },
+            "@contentChef": {
+                "authoringContentId": 30,
+                "authoringContentVersion": 3,
+                "publicId": "composite-default-content",
+                "tags": [],
+                "definition": "default-composite-content",
+                "repository": "defaultRepository",
+                "status": "resolved"
+            }
+        },
+        "content_reference": {
+            "leftSection": {
+                "name": "textSection",
+                "value": {
+                    "title": "Amazing left section title",
+                    "content": "Amazing left section content"
+                }
+            },
+            "rightSection": {
+                "name": "sectionWithLinkedContents",
+                "value": {
+                    "listSections": [{
+                        "header": "Amazing title",
+                        "content": "Amazing content",
+                        "@contentChef": {
+                            "authoringContentId": 29,
+                            "authoringContentVersion": 1,
+                            "publicId": "header-with-description",
+                            "tags": [],
+                            "definition": "default-header-with-content",
+                            "repository": "defaultRepository",
+                            "status": "resolved"
+                        }
+                    }]
+                }
+            },
+            "@contentChef": {
+                "authoringContentId": 30,
+                "authoringContentVersion": 3,
+                "publicId": "composite-default-content",
+                "tags": [],
+                "definition": "default-composite-content",
+                "repository": "defaultRepository",
+                "status": "resolved"
+            }
+        }
+    },
+    "onlineDate": null,
+    "offlineDate": null,
+    "metadata": {
+        "id": 53,
+        "authoringContentId": 75,
+        "contentVersion": 1,
+        "contentLastModifiedDate": "2020-02-28T00:00:00.000Z",
+        "tags": [],
+        "publishedOn": "2020-02-28T09:11:16.233Z"
+    },
+    "requestContext": {
+        "publishingChannel": "depc",
+        "targetDate": "2020-03-10T14:42:48.404Z",
+        "cloudName": "contentchef",
+        "timestamp": "2020-03-09T08:35:18.058Z"
+    }
+}

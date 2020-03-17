@@ -1,0 +1,22 @@
+{
+    "type": "ValidationError",
+    "message": "Input data failed to pass validation",
+    "input": {
+        "spaceId": "website1-f16d",
+        "targetDate": "2020-03-10T15:00:45.074 01:00",
+        "publishingChannel": "depc",
+        "filters": {
+            "publicId": "paolo_composite_content",
+            "legacyMetadata": false,
+            "liveContents": false
+        }
+    },
+    "validationsErrors": [{
+        "value": "2020-03-10T15:00:45.074 01:00",
+        "property": "targetDate",
+        "children": [],
+        "constraints": {
+            "isIso8601": "targetDate must be a valid ISO 8601 date string"
+        }
+    }]
+}

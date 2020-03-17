@@ -1,0 +1,113 @@
+{
+    "items": [{
+        "publicId": "paolo_composite_content",
+        "definition": "paolo-composite-content",
+        "repository": "defaultRepository",
+        "payload": {
+            "simple_text": "This is a simple text",
+            "simple_number": 1,
+            "number_values_list": 1,
+            "simple_plain_text": "This is a simple plain text",
+            "markdown_plain_text": "**This is a markdown plain text**",
+            "json_plain_text": "{\"json\":\"This is a JSON plain text\"}",
+            "html_plain_text": "<!DOCTYPE html>\n<html>\n<body>\n\n<p>HTML plain text</p>\n\n</body>\n</html>",
+            "date": "2020-03-09T10:56:00.000Z",
+            "boolean": true,
+            "legacy_content_reference": {
+                "leftSection": {
+                    "name": "textSection",
+                    "value": {
+                        "title": "Amazing left section title",
+                        "content": "Amazing left section content"
+                    }
+                },
+                "rightSection": {
+                    "name": "sectionWithLinkedContents",
+                    "value": {
+                        "listSections": [{
+                            "header": "Amazing title",
+                            "content": "Amazing content",
+                            "@contentChef": {
+                                "authoringContentId": 29,
+                                "authoringContentVersion": 1,
+                                "publicId": "header-with-description",
+                                "tags": [],
+                                "definition": "default-header-with-content",
+                                "repository": "defaultRepository",
+                                "status": "resolved"
+                            }
+                        }]
+                    }
+                },
+                "@contentChef": {
+                    "authoringContentId": 30,
+                    "authoringContentVersion": 3,
+                    "publicId": "composite-default-content",
+                    "tags": [],
+                    "definition": "default-composite-content",
+                    "repository": "defaultRepository",
+                    "status": "resolved"
+                }
+            },
+            "content_reference": {
+                "leftSection": {
+                    "name": "textSection",
+                    "value": {
+                        "title": "Amazing left section title",
+                        "content": "Amazing left section content"
+                    }
+                },
+                "rightSection": {
+                    "name": "sectionWithLinkedContents",
+                    "value": {
+                        "listSections": [{
+                            "header": "Amazing title",
+                            "content": "Amazing content",
+                            "@contentChef": {
+                                "authoringContentId": 29,
+                                "authoringContentVersion": 1,
+                                "publicId": "header-with-description",
+                                "tags": [],
+                                "definition": "default-header-with-content",
+                                "repository": "defaultRepository",
+                                "status": "resolved"
+                            }
+                        }]
+                    }
+                },
+                "@contentChef": {
+                    "authoringContentId": 30,
+                    "authoringContentVersion": 3,
+                    "publicId": "composite-default-content",
+                    "tags": [],
+                    "definition": "default-composite-content",
+                    "repository": "defaultRepository",
+                    "status": "resolved"
+                }
+            }
+        },
+        "onlineDate": "2020-03-07T23:00:00.000Z",
+        "offlineDate": "2020-03-31T21:59:00.000Z",
+        "metadata": {
+            "id": 59,
+            "authoringContentId": 77,
+            "contentVersion": 2,
+            "contentLastModifiedDate": "2020-03-09T00:00:00.000Z",
+            "publishedOn": "2020-03-09T11:00:42.431Z",
+            "tags": ["paolo_tag"]
+        },
+        "requestContext": {
+            "publishingChannel": "depc",
+            "cloudName": "contentchef",
+            "timestamp": "2020-03-09T13:09:27.195Z"
+        }
+    }],
+    "total": 1,
+    "skip": 0,
+    "take": 25,
+    "requestContext": {
+        "publishingChannel": "depc",
+        "cloudName": "contentchef",
+        "timestamp": "2020-03-09T13:33:26.898Z"
+    }
+}
