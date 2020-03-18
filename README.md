@@ -3,6 +3,7 @@ Welcome to  [ContentChef API-First CMS's](https://www.contentchef.io/)  iOS/iPad
 
 ## How to use it
 Import ContentChef SDK in your source file: `import ContentChefSDK`
+
 Create your ContentChef instance like this:
 ```
 // Content Chef configuration instantiation.
@@ -15,7 +16,7 @@ Replace `{space identifier}` placeholder with an actual value retrieved from you
 
 You can now use your contentChef instance to get the channel you want to use to retrieve info: you have two channels, the `OnlineChannel` and the `PreviewChannel`.
 
-With the `OnlineChannel` you can retrieve contents which are in live state and which are actually visible, while with the `PreviewChannel` you can retrieve contents which are in in both stage and live states and even contents that are not visible in the current date.
+With the `OnlineChannel` you can retrieve contents which are in *live* state and which are actually visible, while with the `PreviewChannel` you can retrieve contents which are in both *stage* and *live* states and even contents that are not visible in the current date.
 
 Both the `OnlineChannel` and the `PreviewChannel` have two methods which are `getContent()` and `search()`.
 
@@ -24,7 +25,7 @@ You can use the `getContent()` method to collect a specific content by its own `
 ## Examples
 ### Retrieve Content
 `{publishing channel}` can be retrieved from your  [ContentChef’s dashboard](https://app.contentchef.io/) .
-Retrieve the /new-header/ content from the live environment:
+Retrieve the *new-header* content from the live environment:
 ```
 // channel instantiation
 let onlineChannel = contentChef.getOnlineChannel(channel: {publishing channel})
@@ -44,7 +45,7 @@ onlineChannel.getContent(contentRequest: onlineContentRequest) { (result : Resul
 }
 ```
 
-Preview the /new-header/ content in a given future date:
+Preview the *new-header* content in a given future date:
 ```
 // channel instantiation
 let previewChannel = contentChef.getPreviewChannel(channel: {publishing channel})
@@ -86,7 +87,7 @@ onlineChannel.getContent(contentRequest: onlineContentRequest) { (result : Resul
 ```
 
 ### Search
-Search for all the contents with public ids /abc/ and /def/ in the live environment:
+Search for all the contents with public ids *abc* and *def* in the live environment:
 ```
 // search request istantiation
 var onlineSearchRequest = SearchRequest()
@@ -106,7 +107,7 @@ onlineChannel.search(searchRequest: onlineSearchRequest) { (result : Result<Sear
 }
 ```
 
-Preview all the contents with public ids /abc/ and /def/ in a given future date:
+Preview all the contents with public ids *abc* and *def* in a given future date:
 ```
 // search request istantiation
 var previewSearchRequest = SearchRequest()
@@ -154,5 +155,9 @@ Look at `ContentChefSampleApp` in the source code for more examples.
 
 ## Installation
 ### Installing from GitHub through CocoaPods
-ContentChef SDK is available via CocoaPods. To install it use Podfile directives like the following:
-`pod ‘ContentChefSDK’, :git => ‘https://github.com/ContentChef/contentchef-ios.git', :branch => ‘master’`
+ContentChef SDK is available via CocoaPods.
+
+To install it use Podfile directives like the following:
+```
+pod ‘ContentChefSDK’, :git => "https://github.com/ContentChef/contentchef-ios.git", :branch => "master"
+```
