@@ -7,7 +7,7 @@ Import ContentChef SDK in your source file: `import ContentChefSDK`
 Create your ContentChef instance like this:
 ```
 // Content Chef configuration instantiation.
-let configuration = ContentChefEnvironmentConfiguration(environment: .staging, spaceId: “{space identifier}”)
+let configuration = ContentChefEnvironmentConfiguration(environment: .staging, spaceId: "{space identifier}")
 
 // Content Chef instantiation
 let contentChef = ContentChef.instanceWith(configuration: configuration)
@@ -79,9 +79,9 @@ onlineChannel.getContent(contentRequest: onlineContentRequest) { (result : Resul
     switch result {
     case .success(let contentResponse):
         // payload is MyPayload type
-        print(“\(contentResponse.payload)”)
+        print("\(contentResponse.payload)")
     case .failure(let error):
-        print(“\(error)”)
+        print("\(error)")
     }
 }
 ```
@@ -116,16 +116,16 @@ var previewSearchRequest = SearchRequest()
 previewSearchRequest.targetDate = Date().addingTimeInterval(60 * 60 * 24)
 
 // search request parameters setting
-previewSearchRequest.publicIds = [“abc”,”def”]
+previewSearchRequest.publicIds = ["abc","def"]
 
 // search request expecting [String:AnyJSONType] type
 previewChannel.search(searchRequest: previewSearchRequest) { (result : Result<SearchResponse<[String:AnyJSONType]>, ContentChefError>) in
     switch result {
     case .success(let searchResponse):
         // each item is [String:AnyJSONType] type
-        print(“\(searchResponse.items)”)
+        print("\(searchResponse.items)")
     case .failure(let error):
-        print(“\(error)”)
+        print("\(error)")
     }
 }
 ```

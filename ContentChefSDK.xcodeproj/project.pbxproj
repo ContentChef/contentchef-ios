@@ -17,6 +17,7 @@
 		4075F2CA24068F9C007D3D28 /* ContentChefSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4075F2C924068F9C007D3D28 /* ContentChefSDKTests.swift */; };
 		4075F2CC24068F9C007D3D28 /* ContentChefSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 4075F2BE24068F9C007D3D28 /* ContentChefSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4075F2D62406909E007D3D28 /* ContentChefConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4075F2D52406909E007D3D28 /* ContentChefConfiguration.swift */; };
+		408A76E42422206900EE408E /* ContentChefIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A76E32422206800EE408E /* ContentChefIntegrationTests.swift */; };
 		40FAE9ED2406DCA900EA5D1E /* ContentChef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAE9EC2406DCA900EA5D1E /* ContentChef.swift */; };
 		40FAE9EF2407CC9400EA5D1E /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAE9EE2407CC9400EA5D1E /* Channel.swift */; };
 		40FAE9F32407D5F900EA5D1E /* ContentChefError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAE9F22407D5F900EA5D1E /* ContentChefError.swift */; };
@@ -66,6 +67,7 @@
 		4075F2C924068F9C007D3D28 /* ContentChefSDKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentChefSDKTests.swift; sourceTree = "<group>"; };
 		4075F2CB24068F9C007D3D28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4075F2D52406909E007D3D28 /* ContentChefConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentChefConfiguration.swift; sourceTree = "<group>"; };
+		408A76E32422206800EE408E /* ContentChefIntegrationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentChefIntegrationTests.swift; path = ../../../Documents/ContentChefSDK/ContentChefSDK/ContentChefSDKTests/ContentChefIntegrationTests.swift; sourceTree = "<group>"; };
 		40FAE9EC2406DCA900EA5D1E /* ContentChef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentChef.swift; sourceTree = "<group>"; };
 		40FAE9EE2407CC9400EA5D1E /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		40FAE9F22407D5F900EA5D1E /* ContentChefError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentChefError.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 			children = (
 				40FAEA1C2408424400EA5D1E /* json */,
 				4075F2C924068F9C007D3D28 /* ContentChefSDKTests.swift */,
+				408A76E32422206800EE408E /* ContentChefIntegrationTests.swift */,
 				4075F2CB24068F9C007D3D28 /* Info.plist */,
 				4030D64A24169BE7005B41A1 /* LocalRequestExecutor.swift */,
 				4030D64E24169D78005B41A1 /* MyLogger.swift */,
@@ -388,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				408A76E42422206900EE408E /* ContentChefIntegrationTests.swift in Sources */,
 				4075F2CA24068F9C007D3D28 /* ContentChefSDKTests.swift in Sources */,
 				4030D64B24169BE7005B41A1 /* LocalRequestExecutor.swift in Sources */,
 				4030D64F24169D78005B41A1 /* MyLogger.swift in Sources */,
