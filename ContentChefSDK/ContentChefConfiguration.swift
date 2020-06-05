@@ -24,6 +24,8 @@ public struct ContentChefEnvironmentConfiguration {
     var spaceId: String
     var contentChefBaseUrl: String = "https://api.contentchef.io"
     var requestFactory: RequestExecutorFactory = RemoteRequestExecutorFactory()
+    var onlineApiKey : String
+    var previewApiKey : String
     var logger : Logger?
     
     /**
@@ -32,18 +34,21 @@ public struct ContentChefEnvironmentConfiguration {
     - Parameters:
         - environment: ContentChef environment
         - spaceId: ContentChef spaceId
+        - onlineApiKey: ContentChef Online Api Key
+        - previewApiKey: ContentChef Preview Api Key
         - logger: Logger instance
-
     - Returns: an instance of `ContentChefEnvironmentConfiguration`.
     */
-    public init(environment: ContentChefEnvironment, spaceId: String, logger: Logger? = nil) {
+    public init(environment: ContentChefEnvironment, spaceId: String, onlineApiKey: String, previewApiKey: String, logger: Logger? = nil) {
         self.contentChefEnvironment = environment
         self.spaceId = spaceId
+        self.onlineApiKey = onlineApiKey
+        self.previewApiKey = previewApiKey
         self.logger = logger
     }
     
-    init(environment: ContentChefEnvironment, spaceId: String, contentChefBaseUrl: String? = nil, requestFactory: RequestExecutorFactory, logger: Logger? = nil) {
-        self.init(environment: environment, spaceId: spaceId, logger: logger)
+    init(environment: ContentChefEnvironment, spaceId: String, contentChefBaseUrl: String? = nil, onlineApiKey: String, previewApiKey: String, requestFactory: RequestExecutorFactory, logger: Logger? = nil) {
+        self.init(environment: environment, spaceId: spaceId, onlineApiKey: onlineApiKey, previewApiKey: previewApiKey, logger: logger)
         self.requestFactory = requestFactory
     }
 }

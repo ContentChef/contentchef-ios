@@ -80,7 +80,7 @@ class RemoteRequestExecutor : RequestExecutor {
         }
         
         urlComponents.queryItems = queryItems
-        
+
         guard let urlWithQuery = urlComponents.url else {
             log(message: "Unable to create url. url: \(url), queryItems: \(queryItems)", level: .debug, configuration: configuration)
             
@@ -92,7 +92,18 @@ class RemoteRequestExecutor : RequestExecutor {
         
         var request = URLRequest(url: urlWithQuery)
         request.httpMethod = "GET"
-         
+        
+        switch webService {
+        case .onlineContent:
+            fallthrough
+        case .onlineSearch:
+            request.addValue(configuration.onlineApiKey, forHTTPHeaderField: "X-Chef-Key")
+        case .previewContent:
+            fallthrough
+        case .previewSearch:
+            request.addValue(configuration.previewApiKey, forHTTPHeaderField: "X-Chef-Key")
+        }
+        
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 log(message: "Response finished with the following error: \(error)", level: .debug, configuration: configuration)

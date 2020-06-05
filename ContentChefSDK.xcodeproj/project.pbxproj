@@ -17,7 +17,6 @@
 		4075F2CA24068F9C007D3D28 /* ContentChefSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4075F2C924068F9C007D3D28 /* ContentChefSDKTests.swift */; };
 		4075F2CC24068F9C007D3D28 /* ContentChefSDK.h in Headers */ = {isa = PBXBuildFile; fileRef = 4075F2BE24068F9C007D3D28 /* ContentChefSDK.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4075F2D62406909E007D3D28 /* ContentChefConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4075F2D52406909E007D3D28 /* ContentChefConfiguration.swift */; };
-		408A76E42422206900EE408E /* ContentChefIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 408A76E32422206800EE408E /* ContentChefIntegrationTests.swift */; };
 		40FAE9ED2406DCA900EA5D1E /* ContentChef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAE9EC2406DCA900EA5D1E /* ContentChef.swift */; };
 		40FAE9EF2407CC9400EA5D1E /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAE9EE2407CC9400EA5D1E /* Channel.swift */; };
 		40FAE9F32407D5F900EA5D1E /* ContentChefError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FAE9F22407D5F900EA5D1E /* ContentChefError.swift */; };
@@ -391,7 +390,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				408A76E42422206900EE408E /* ContentChefIntegrationTests.swift in Sources */,
 				4075F2CA24068F9C007D3D28 /* ContentChefSDKTests.swift in Sources */,
 				4030D64B24169BE7005B41A1 /* LocalRequestExecutor.swift in Sources */,
 				4030D64F24169D78005B41A1 /* MyLogger.swift in Sources */,

@@ -18,9 +18,11 @@ func testThread() {
 class ContentChefSDKTests: XCTestCase {
     var configuration : ContentChefEnvironmentConfiguration!
     var contentChef : ContentChef!
+    let previewApiKey = ""
+    let onlineApiKey = ""
     
     override func setUp() {
-        configuration = ContentChefEnvironmentConfiguration(environment: .live, spaceId: "spaceId", requestFactory: LocalRequestExecutorFactory(bundle: Bundle(for: type(of: ContentChefSDKTests())), path: "json"), logger: MyLogger(level: .verbose))
+        configuration = ContentChefEnvironmentConfiguration(environment: .live, spaceId: "spaceId", onlineApiKey: onlineApiKey, previewApiKey: previewApiKey, requestFactory: LocalRequestExecutorFactory(bundle: Bundle(for: type(of: ContentChefSDKTests())), path: "json"), logger: MyLogger(level: .verbose))
         contentChef = ContentChef.instanceWith(configuration: configuration)
     }
 
@@ -29,7 +31,7 @@ class ContentChefSDKTests: XCTestCase {
     }
     
     func testGetOnlineChannel() {
-        let configuration = ContentChefEnvironmentConfiguration(environment: .live, spaceId: "spaceId")
+        let configuration = ContentChefEnvironmentConfiguration(environment: .live, spaceId: "spaceId", onlineApiKey: onlineApiKey, previewApiKey: previewApiKey)
         let contentChef = ContentChef.instanceWith(configuration: configuration)
         guard let channel = contentChef.getOnlineChannel(channel: "") as? OnlineChannel else {
             XCTFail("Error getting Online Channel")
@@ -38,7 +40,7 @@ class ContentChefSDKTests: XCTestCase {
     }
     
     func testGetPreviewChannel() {
-        let configuration = ContentChefEnvironmentConfiguration(environment: .live, spaceId: "spaceId")
+        let configuration = ContentChefEnvironmentConfiguration(environment: .live, spaceId: "spaceId", onlineApiKey: onlineApiKey, previewApiKey: previewApiKey)
         let contentChef = ContentChef.instanceWith(configuration: configuration)
         guard let channel = contentChef.getPreviewChannel(channel: "") as? PreviewChannel else {
             XCTFail("Error getting Preview Channel")

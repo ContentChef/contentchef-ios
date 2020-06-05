@@ -7,12 +7,14 @@ Import ContentChef SDK in your source file: `import ContentChefSDK`
 Create your ContentChef instance like this:
 ```
 // Content Chef configuration instantiation.
-let configuration = ContentChefEnvironmentConfiguration(environment: .staging, spaceId: "{space identifier}")
+let configuration = ContentChefEnvironmentConfiguration(environment: .staging, spaceId: "{space identifier}", onlineApiKey: {online api key}, previewApiKey: {preview api key})
 
 // Content Chef instantiation
 let contentChef = ContentChef.instanceWith(configuration: configuration)
 ```
 Replace `{space identifier}` placeholder with an actual value retrieved from your [ContentChef’s dashboard](https://app.contentchef.io/).
+
+Replace `{online api key}` and `{preview api key}` placeholders with your api keys.
 
 You can now use your contentChef instance to get the channel you want to use to retrieve info: you have two channels, the `OnlineChannel` and the `PreviewChannel`.
 
@@ -89,7 +91,7 @@ onlineChannel.getContent(contentRequest: onlineContentRequest) { (result : Resul
 ### Search
 Search for all the contents with public ids *abc* and *def* in the live environment:
 ```
-// search request istantiation
+// search request instantiation
 var onlineSearchRequest = SearchRequest()
 
 // search request parameters setting
@@ -109,7 +111,7 @@ onlineChannel.search(searchRequest: onlineSearchRequest) { (result : Result<Sear
 
 Preview all the contents with public ids *abc* and *def* in a given future date:
 ```
-// search request istantiation
+// search request instantiation
 var previewSearchRequest = SearchRequest()
 
 // search request target date setter

@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // Content Chef configuration
-        let configuration = ContentChefEnvironmentConfiguration(environment: .staging, spaceId: "")
+        let configuration = ContentChefEnvironmentConfiguration(environment: .staging, spaceId: "", onlineApiKey: "", previewApiKey: "")
         // Content Chef instantiation
         let contentChef = ContentChef.instanceWith(configuration: configuration)
         
