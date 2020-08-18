@@ -32,7 +32,7 @@ class LocalRequestExecutor : RequestExecutor {
         self.path = path
     }
 
-    func execute<T>(params: [String:String], webService: WebService, configuration: ContentChefEnvironmentConfiguration, publishingChannel: String, completion: @escaping (Result<T, ContentChefError>) -> Void) where T : Decodable {
+    func execute<T>(params: [String:String], webService: WebService, configuration: ContentChefEnvironmentConfiguration, publishingChannel: String, apiKey: String, completion: @escaping (Result<T, ContentChefError>) -> Void) where T : Decodable {
         
         guard let path = bundle.path(forResource: webService.rawValue, ofType: "json") else {
             completion(.failure(ContentChefError.configurationError))

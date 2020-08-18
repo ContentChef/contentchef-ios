@@ -15,13 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // Content Chef configuration
-        let configuration = ContentChefEnvironmentConfiguration(environment: .staging, spaceId: "", onlineApiKey: "", previewApiKey: "")
+        let configuration = ContentChefEnvironmentConfiguration(environment: .staging, spaceId: "")
         // Content Chef instantiation
         let contentChef = ContentChef.instanceWith(configuration: configuration)
         
         // Online Channel query example
         // channel instantiation
-        let onlineChannel = contentChef.getOnlineChannel(channel: "")
+        let onlineChannel = contentChef.getOnlineChannel(channel: "", apiKey: "")
         // request instantiation
         let onlineContentRequest = ContentRequest(publicId: "")
         // content request expecting [String:AnyJSONType] type
@@ -55,7 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Preview Channel query example
         // channel instantiation
-        let previewChannel = contentChef.getPreviewChannel(channel: "")
+        let previewChannel = contentChef.getPreviewChannel(channel: "", apiKey: "")
         // request instantiation
         let previewContentRequest = ContentRequest(publicId: "", targetDate: Date().addingTimeInterval(60 * 60 * 24))
         // content request expecting [String:AnyJSONType] type

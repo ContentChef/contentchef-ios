@@ -7,14 +7,12 @@ Import ContentChef SDK in your source file: `import ContentChefSDK`
 Create your ContentChef instance like this:
 ```
 // Content Chef configuration instantiation.
-let configuration = ContentChefEnvironmentConfiguration(environment: .staging, spaceId: "{space identifier}", onlineApiKey: {online api key}, previewApiKey: {preview api key})
+let configuration = ContentChefEnvironmentConfiguration(environment: .staging, spaceId: "{space identifier}")
 
 // Content Chef instantiation
 let contentChef = ContentChef.instanceWith(configuration: configuration)
 ```
 Replace `{space identifier}` placeholder with an actual value retrieved from your [ContentChef’s dashboard](https://app.contentchef.io/).
-
-Replace `{online api key}` and `{preview api key}` placeholders with your api keys.
 
 You can now use your contentChef instance to get the channel you want to use to retrieve info: you have two channels, the `OnlineChannel` and the `PreviewChannel`.
 
@@ -27,10 +25,13 @@ You can use the `getContent()` method to collect a specific content by its own `
 ## Examples
 ### Retrieve Content
 `{publishing channel}` can be retrieved from your  [ContentChef’s dashboard](https://app.contentchef.io/) .
+
+Replace `{apiKey}` placeholders with your api keys.
+
 Retrieve the *new-header* content from the live environment:
 ```
 // channel instantiation
-let onlineChannel = contentChef.getOnlineChannel(channel: {publishing channel})
+let onlineChannel = contentChef.getOnlineChannel(channel: {publishing channel}, apiKey: "{apiKey}")
 
 // request instantiation
 let onlineContentRequest = ContentRequest(publicId: "new-header")
@@ -50,7 +51,7 @@ onlineChannel.getContent(contentRequest: onlineContentRequest) { (result : Resul
 Preview the *new-header* content in a given future date:
 ```
 // channel instantiation
-let previewChannel = contentChef.getPreviewChannel(channel: {publishing channel})
+let previewChannel = contentChef.getPreviewChannel(channel: {publishing channel}, apiKey: "{apiKey}")
 
 // request instantiation
 let previewContentRequest = ContentRequest(publicId: "new-header", targetDate: Date().addingTimeInterval(60 * 60 * 24))

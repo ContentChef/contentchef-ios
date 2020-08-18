@@ -22,7 +22,7 @@ class ContentChefSDKTests: XCTestCase {
     let onlineApiKey = ""
     
     override func setUp() {
-        configuration = ContentChefEnvironmentConfiguration(environment: .live, spaceId: "spaceId", onlineApiKey: onlineApiKey, previewApiKey: previewApiKey, requestFactory: LocalRequestExecutorFactory(bundle: Bundle(for: type(of: ContentChefSDKTests())), path: "json"), logger: MyLogger(level: .verbose))
+        configuration = ContentChefEnvironmentConfiguration(environment: .live, spaceId: "spaceId", requestFactory: LocalRequestExecutorFactory(bundle: Bundle(for: type(of: ContentChefSDKTests())), path: "json"), logger: MyLogger(level: .verbose))
         contentChef = ContentChef.instanceWith(configuration: configuration)
     }
 
@@ -31,18 +31,18 @@ class ContentChefSDKTests: XCTestCase {
     }
     
     func testGetOnlineChannel() {
-        let configuration = ContentChefEnvironmentConfiguration(environment: .live, spaceId: "spaceId", onlineApiKey: onlineApiKey, previewApiKey: previewApiKey)
+        let configuration = ContentChefEnvironmentConfiguration(environment: .live, spaceId: "spaceId")
         let contentChef = ContentChef.instanceWith(configuration: configuration)
-        guard let channel = contentChef.getOnlineChannel(channel: "") as? OnlineChannel else {
+        guard let channel = contentChef.getOnlineChannel(channel: "", apiKey: "") as? OnlineChannel else {
             XCTFail("Error getting Online Channel")
             return
         }
     }
     
     func testGetPreviewChannel() {
-        let configuration = ContentChefEnvironmentConfiguration(environment: .live, spaceId: "spaceId", onlineApiKey: onlineApiKey, previewApiKey: previewApiKey)
+        let configuration = ContentChefEnvironmentConfiguration(environment: .live, spaceId: "spaceId")
         let contentChef = ContentChef.instanceWith(configuration: configuration)
-        guard let channel = contentChef.getPreviewChannel(channel: "") as? PreviewChannel else {
+        guard let channel = contentChef.getPreviewChannel(channel: "", apiKey: "") as? PreviewChannel else {
             XCTFail("Error getting Preview Channel")
             return
         }
@@ -51,7 +51,7 @@ class ContentChefSDKTests: XCTestCase {
     func testGetOnlineContent() {
         let exp = expectation(description: #function)
         
-        let channel = contentChef.getOnlineChannel(channel: "")
+        let channel = contentChef.getOnlineChannel(channel: "", apiKey: "")
         
         let contentRequest = ContentRequest(publicId: "")
         
@@ -73,7 +73,7 @@ class ContentChefSDKTests: XCTestCase {
     func testGetPreviewContent() {
         let exp = expectation(description: #function)
         
-        let channel = contentChef.getPreviewChannel(channel: "")
+        let channel = contentChef.getPreviewChannel(channel: "", apiKey: "")
         
         let contentRequest = ContentRequest(publicId: "", targetDate: Date())
         
@@ -95,7 +95,7 @@ class ContentChefSDKTests: XCTestCase {
     func testGetOnlineSearch() {
         let exp = expectation(description: #function)
         
-        let channel = contentChef.getOnlineChannel(channel: "")
+        let channel = contentChef.getOnlineChannel(channel: "", apiKey: "")
         
         let searchRequest = SearchRequest()
         
@@ -118,7 +118,7 @@ class ContentChefSDKTests: XCTestCase {
     func testGetPreviewSearchRequest() {
         let exp = expectation(description: #function)
         
-        let channel = contentChef.getPreviewChannel(channel: "")
+        let channel = contentChef.getPreviewChannel(channel: "", apiKey: "")
         
         let searchRequest = SearchRequest()
         
@@ -141,7 +141,7 @@ class ContentChefSDKTests: XCTestCase {
     func testGetPreviewSearchRequestWithPropertyFilters() {
         let exp = expectation(description: #function)
         
-        let channel = contentChef.getPreviewChannel(channel: "")
+        let channel = contentChef.getPreviewChannel(channel: "", apiKey: "")
         
         var searchRequest = SearchRequest()
         searchRequest.setPropertyFiltersBooleanOperator(.and)

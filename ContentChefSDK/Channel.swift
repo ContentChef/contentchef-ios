@@ -29,10 +29,12 @@ public protocol Channel {
 class OnlineChannel : Channel {
     let configuration : ContentChefEnvironmentConfiguration
     let channel : String
+    let apiKey : String
     
-    init(channel: String, configuration: ContentChefEnvironmentConfiguration) {
+    init(channel: String, configuration: ContentChefEnvironmentConfiguration, apiKey: String) {
         self.channel = channel
         self.configuration = configuration
+        self.apiKey = apiKey
         
         log(message: "\(self.self) Channel \(channel) created", level: .debug, configuration: configuration)
     }
@@ -40,7 +42,7 @@ class OnlineChannel : Channel {
     func getContent<T: Decodable>(contentRequest: ContentRequest, completion: @escaping (Result<ContentResponse<T>,ContentChefError>)->Void) {
         configuration.logger?.log(message: "Content request for \"\(contentRequest.publicId)\" started...", level: .verbose)
         
-        configuration.requestFactory.getRequestExecutor().execute(params: contentRequest.asMap, webService: .onlineContent, configuration: configuration, publishingChannel: channel) { (result:Result<ContentResponse<T>, ContentChefError>) in
+        configuration.requestFactory.getRequestExecutor().execute(params: contentRequest.asMap, webService: .onlineContent, configuration: configuration, publishingChannel: channel, apiKey: self.apiKey) { (result:Result<ContentResponse<T>, ContentChefError>) in
             switch result {
             case .success(let value):
                 log(message: "Content request for \"\(contentRequest.publicId)\" finished", level: .debug, configuration: self.configuration)
@@ -64,7 +66,7 @@ class OnlineChannel : Channel {
             return
         }
         
-        configuration.requestFactory.getRequestExecutor().execute(params: parameters, webService: .onlineSearch, configuration: configuration, publishingChannel: channel) { (result:Result<SearchResponse<T>, ContentChefError>) in
+        configuration.requestFactory.getRequestExecutor().execute(params: parameters, webService: .onlineSearch, configuration: configuration, publishingChannel: channel, apiKey: self.apiKey) { (result:Result<SearchResponse<T>, ContentChefError>) in
             switch result {
             case .success(let value):
                 log(message: "Search request for \"\(searchRequest)\" finished", level: .debug, configuration: self.configuration)
@@ -84,7 +86,7 @@ class PreviewChannel : OnlineChannel {
     override func getContent<T: Decodable>(contentRequest: ContentRequest, completion: @escaping (Result<ContentResponse<T>,ContentChefError>)->Void) {
         configuration.logger?.log(message: "Content request for \"\(contentRequest.publicId)\" started...", level: .verbose)
         
-        configuration.requestFactory.getRequestExecutor().execute(params: contentRequest.asMap, webService: .previewContent, configuration: configuration, publishingChannel: channel) { (result:Result<ContentResponse<T>, ContentChefError>) in
+        configuration.requestFactory.getRequestExecutor().execute(params: contentRequest.asMap, webService: .previewContent, configuration: configuration, publishingChannel: channel, apiKey: self.apiKey) { (result:Result<ContentResponse<T>, ContentChefError>) in
             switch result {
             case .success(let value):
                 log(message: "Content request for \"\(contentRequest.publicId)\" finished", level: .debug, configuration: self.configuration)
@@ -108,7 +110,7 @@ class PreviewChannel : OnlineChannel {
             return
         }
         
-        configuration.requestFactory.getRequestExecutor().execute(params: parameters, webService: .previewSearch, configuration: configuration, publishingChannel: channel) { (result:Result<SearchResponse<T>, ContentChefError>) in
+        configuration.requestFactory.getRequestExecutor().execute(params: parameters, webService: .previewSearch, configuration: configuration, publishingChannel: channel, apiKey: self.apiKey) { (result:Result<SearchResponse<T>, ContentChefError>) in
             switch result {
             case .success(let value):
                 log(message: "Search request for \"\(searchRequest)\" finished", level: .debug, configuration: self.configuration)

@@ -13,7 +13,7 @@ protocol RequestExecutorFactory {
 }
 
 protocol RequestExecutor {
-    func execute<T>(params: [String:String], webService: WebService, configuration: ContentChefEnvironmentConfiguration, publishingChannel: String, completion: @escaping (Result<T, ContentChefError>)->Void) where T : Decodable
+    func execute<T>(params: [String:String], webService: WebService, configuration: ContentChefEnvironmentConfiguration, publishingChannel: String, apiKey: String, completion: @escaping (Result<T, ContentChefError>)->Void) where T : Decodable
 }
 
 class RemoteRequestExecutorFactory : RequestExecutorFactory {
@@ -62,7 +62,7 @@ struct ResponseError: Codable {
 }
 
 class RemoteRequestExecutor : RequestExecutor {
-    func execute<T>(params: [String:String], webService: WebService, configuration: ContentChefEnvironmentConfiguration, publishingChannel: String, completion: @escaping (Result<T, ContentChefError>) -> Void) where T : Decodable {
+    func execute<T>(params: [String:String], webService: WebService, configuration: ContentChefEnvironmentConfiguration, publishingChannel: String, apiKey: String, completion: @escaping (Result<T, ContentChefError>) -> Void) where T : Decodable {
         log(message: "RemoteRequestExecutor execute started...", level: .verbose, configuration: configuration)
         
         guard let url = self.getURL(webService: webService, configuration: configuration, publishingChannel: publishingChannel),
@@ -97,11 +97,11 @@ class RemoteRequestExecutor : RequestExecutor {
         case .onlineContent:
             fallthrough
         case .onlineSearch:
-            request.addValue(configuration.onlineApiKey, forHTTPHeaderField: "X-Chef-Key")
+            request.addValue(apiKey, forHTTPHeaderField: "x-chef-key")
         case .previewContent:
             fallthrough
         case .previewSearch:
-            request.addValue(configuration.previewApiKey, forHTTPHeaderField: "X-Chef-Key")
+            request.addValue(apiKey, forHTTPHeaderField: "x-chef-key")
         }
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in

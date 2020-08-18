@@ -39,11 +39,12 @@ public class ContentChef {
 
     - Parameters:
        - channel: channel name
+       - apiKey: api key for the Online Channel
 
     - Returns: an Online Channel instance.
     */
-    public func getOnlineChannel(channel: String) -> Channel {
-        return OnlineChannel(channel: channel, configuration: configuration)
+    public func getOnlineChannel(channel: String, apiKey: String) -> Channel {
+        return OnlineChannel(channel: channel, configuration: configuration, apiKey: apiKey)
     }
     
     /**
@@ -51,10 +52,11 @@ public class ContentChef {
 
     - Parameters:
        - channel: channel name
+       - apiKey: api key for the Preview Channel
 
     - Returns: an Online Channel instance.
     */
-    public func getPreviewChannel(channel: String) -> Channel {
-        return PreviewChannel(channel: channel, configuration: configuration)
+    public func getPreviewChannel(channel: String, apiKey: String) -> Channel {
+        return PreviewChannel(channel: channel, configuration: configuration, apiKey: apiKey)
     }
 }
